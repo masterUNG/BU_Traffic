@@ -1,6 +1,8 @@
 package appewtc.masterung.butraffic;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -37,8 +39,9 @@ public class MainActivity extends AppCompatActivity {
                 buttonPlayer.start();
 
                 //Intent to WebView
-
-
+                Intent objIntent = new Intent(Intent.ACTION_VIEW);
+                objIntent.setData(Uri.parse("http://androidthai.in.th/about-me.html"));
+                startActivity(objIntent);
 
             }   // event
         });
