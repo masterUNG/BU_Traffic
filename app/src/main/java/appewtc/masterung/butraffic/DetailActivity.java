@@ -19,7 +19,24 @@ public class DetailActivity extends AppCompatActivity {
 
         bindWidget();
 
+        //Receive Value from Intent
+        receiveFromIntent();
+
     }   // Main Method
+
+    private void receiveFromIntent() {
+
+        String strTitle = getIntent().getStringExtra("Title");
+        titleTextView.setText(strTitle);
+
+        int intImage = getIntent().getIntExtra("Image", R.drawable.traffic_01);
+        trafficImageView.setImageResource(intImage);
+
+        String[] strDetail = getResources().getStringArray(R.array.detail);
+        int intIndex = getIntent().getIntExtra("Index", 0);
+        detailTextView.setText(strDetail[intIndex]);
+
+    }
 
     private void bindWidget() {
 
