@@ -26,7 +26,17 @@ public class ExerciseActivity extends AppCompatActivity {
 
         bindWidget();
 
+        setUpChoice();
+
     }   // Main Method
+
+    private void setUpChoice() {
+        String[] strMyChoice = getResources().getStringArray(R.array.times1);
+        choice1RadioButton.setText(strMyChoice[0]);
+        choice2RadioButton.setText(strMyChoice[1]);
+        choice3RadioButton.setText(strMyChoice[2]);
+        choice4RadioButton.setText(strMyChoice[3]);
+    }
 
     public void clickAnswer(View view) {
 
@@ -37,18 +47,37 @@ public class ExerciseActivity extends AppCompatActivity {
         strQuestion[3] = "4. What is this";
         strQuestion[4] = "5. What is this";
 
+        int[] intImage = new int[5];
+        intImage[0] = R.drawable.traffic_01;
+        intImage[1] = R.drawable.traffic_02;
+        intImage[2] = R.drawable.traffic_03;
+        intImage[3] = R.drawable.traffic_04;
+        intImage[4] = R.drawable.traffic_05;
+
+        int[] intChoice = new int[5];
+        intChoice[0] = R.array.times1;
+        intChoice[1] = R.array.times2;
+        intChoice[2] = R.array.times3;
+        intChoice[3] = R.array.times4;
+        intChoice[4] = R.array.times5;
+
         timesAnInt += 1;
 
         if (timesAnInt < 5) {
 
             questionTextView.setText(strQuestion[timesAnInt]);
+            trafficImageView.setImageResource(intImage[timesAnInt]);
+            String[] strMyChoice = getResources().getStringArray(intChoice[timesAnInt]);
+            choice1RadioButton.setText(strMyChoice[0]);
+            choice2RadioButton.setText(strMyChoice[1]);
+            choice3RadioButton.setText(strMyChoice[2]);
+            choice4RadioButton.setText(strMyChoice[3]);
 
         } else {
 
             startActivity(new Intent(ExerciseActivity.this, ScoreActivity.class));
 
         }
-
 
 
     }   // clickAnswer
